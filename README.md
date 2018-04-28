@@ -1,21 +1,20 @@
-MFRC522-python
+TB_NFC_Cardreader
 ==============
-A small class to interface with the NFC reader Module MFRC522 on the Raspberry Pi.
-This is a Python port of the example code for the NFC module MF522-AN.
+NFC card reader for Tinkerboard. This script written with python language to build check in system for employees.
 
-**Important notice:** This library has not being actively updated in almost four years.
-It might not work as intended on more recent Raspberry Pi devices. You might want to 
-take a look to the open pull-requests and forks to see other implementations and bug-fixes.
+**Important notice:** This library is based on an existing library of ***Mario Gómez***
+https://github.com/mxgxw/MFRC522-python
 
 ## Requirements
-This code requires you to have SPI-Py installed from the following repository:
-https://github.com/lthiery/SPI-Py
+This library directed to Tinkerboard boards.
 
-## Examples
-This repository includes a couple of examples showing how to read, write, and dump data from a chip. They are thoroughly commented, and should be easy to understand.
+- Install python.
+- Install GPIO of ASUS
+- Change the RPi.GPIO to ASUS.GPIO
+- Go to the file MFRC522.py, on line 130 change spidev from 1.0 to 2.0. This interface is enabled by default.
 
-## Pins
-You can use [this](http://i.imgur.com/y7Fnvhq.png) image for reference.
+## Pins(GPIO.BOARD)
+You can use [this](http://radioaficion.com/news/wp-content/uploads/2017/01/Asus_Tinker_Board_catalogue-3.jpg) image for reference.
 
 | Name | Pin # | Pin name   |
 |:------:|:-------:|:------------:|
@@ -28,8 +27,6 @@ You can use [this](http://i.imgur.com/y7Fnvhq.png) image for reference.
 | RST  | 22    | GPIO25     |
 | 3.3V | 1     | 3V3        |
 
-## Usage
-Import the class by importing MFRC522 in the top of your script. For more info see the examples.
 
 ## License
 This code and examples are licensed under the GNU Lesser General Public License 3.0.

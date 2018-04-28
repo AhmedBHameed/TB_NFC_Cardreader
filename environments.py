@@ -1,0 +1,1 @@
+backendUrl = 'http://10.1.40.52:5000/graphql/'
