@@ -69,12 +69,12 @@ while continue_reading:
         nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
         res = http.post('posts', nfcid)
-        print(res)
-        # if (res.ack.ok):
-            # print(res.ack.message)
+        print(type(res))
+        if (res.data.trackMyAss.ack.ok):
+            print(res.data.trackMyAss.ack.message)
             # TODO blinking flash 3 times fast
-        # else:
-            # print(res.ack.message)
+        else:
+            print(res.data.trackMyAss.ack.message)
             # TODO blink 3 time slow
     
         # This is the default key for authentication
