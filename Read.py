@@ -75,17 +75,17 @@ while continue_reading:
             # TODO blinking flash 3 times fast
             for x in range(0,3):
                 GPIO.output(18, GPIO.HIGH)
-                time.sleep(0.3)
+                time.sleep(0.05)
                 GPIO.output(18, GPIO.LOW)
-                time.sleep(0.3)
+                time.sleep(0.05)
         else:
             print(res['ack']['message'])
             # TODO blink 3 time slow
             for x in range(0,3):
                 GPIO.output(18, GPIO.LOW)
-                time.sleep(0.6)
+                time.sleep(0.3)
                 GPIO.output(18, GPIO.HIGH)
-                time.sleep(0.6)
+                time.sleep(0.3)
         # This is the default key for authentication
         # key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
         
