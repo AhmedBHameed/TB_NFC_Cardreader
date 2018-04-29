@@ -28,7 +28,6 @@ import time
 import http
 
 continue_reading = True
-GPIO.setup(18, GPIO.OUT)
 
 # Capture SIGINT for cleanup when the script is aborted
 def end_read(signal,frame):
@@ -65,7 +64,7 @@ while continue_reading:
 
     # If we have the UID, continue
     if status == MIFAREReader.MI_OK:
-        GPIO.output(18, LOW)
+        GPIO.output(18, GPIO.LOW)
         # Print UID
         nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
