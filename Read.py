@@ -72,10 +72,10 @@ while continue_reading:
         if (res['ack']['ok']):
             print(res['ack']['message'])
             if (res['ack']['message'] == 'New NFC id has been added as new partners!'):
-                for x in range(0,4):
+                for x in range(0,3):
                     if(x == 0):
                         GPIO.output(18, GPIO.HIGH)
-                        time.sleep(0.2)
+                        time.sleep(0.3)
                         GPIO.output(18, GPIO.LOW)
                         time.sleep(0.05)
                     GPIO.output(18, GPIO.HIGH)
