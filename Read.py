@@ -28,6 +28,7 @@ import time
 import http
 
 continue_reading = True
+GPIO.setup(18, GPIO.OUT)
 
 # Capture SIGINT for cleanup when the script is aborted
 def end_read(signal,frame):
@@ -64,7 +65,7 @@ while continue_reading:
 
     # If we have the UID, continue
     if status == MIFAREReader.MI_OK:
-
+        GPIO.output(18, LOW)
         # Print UID
         nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
@@ -73,10 +74,19 @@ while continue_reading:
         if (res['ack']['ok']):
             print(res['ack']['message'])
             # TODO blinking flash 3 times fast
+            for x in range(0,3):
+                GPIO.output(18, GPIO.HIGH)
+                time.sleep(0.6)
+                GPIO.output(18, GPIO.LOW)
+                time.sleep(0.6)
         else:
             print(res['ack']['message'])
             # TODO blink 3 time slow
-    
+            for x in range(0,3):
+                GPIO.output(18, GPIO.LOW)
+                time.sleep(1)
+                GPIO.output(18, GPIO.HIGH)
+                time.sleep(1)
         # This is the default key for authentication
         # key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
         
