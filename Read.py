@@ -75,9 +75,9 @@ while continue_reading:
             # TODO blinking flash 3 times fast
             for x in range(0,3):
                 GPIO.output(18, GPIO.HIGH)
-                time.sleep(0.05)
+                time.sleep(0.08)
                 GPIO.output(18, GPIO.LOW)
-                time.sleep(0.05)
+                time.sleep(0.08)
         else:
             print(res['ack']['message'])
             # TODO blink 3 time slow
