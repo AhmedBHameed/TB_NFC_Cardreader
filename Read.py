@@ -64,7 +64,6 @@ while continue_reading:
 
     # If we have the UID, continue
     if status == MIFAREReader.MI_OK:
-        GPIO.output(18, GPIO.LOW)
         # Print UID
         nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
@@ -72,6 +71,17 @@ while continue_reading:
         res = res['data']['trackMyAss']
         if (res['ack']['ok']):
             print(res['ack']['message'])
+            if (res['ack']['message'] == 'New NFC id has been added as new partners!'):
+                for x in range(0,4):
+                    if(x == 0):
+                        GPIO.output(18, GPIO.HIGH)
+                        time.sleep(0.2)
+                        GPIO.output(18, GPIO.LOW)
+                        time.sleep(0.05)
+                    GPIO.output(18, GPIO.HIGH)
+                    time.sleep(0.1)
+                    GPIO.output(18, GPIO.LOW)
+                    time.sleep(0.1)    
             # TODO blinking flash 3 times fast
             for x in range(0,3):
                 GPIO.output(18, GPIO.HIGH)
@@ -82,9 +92,9 @@ while continue_reading:
             print(res['ack']['message'])
             # TODO blink 3 time slow
             for x in range(0,3):
-                GPIO.output(18, GPIO.LOW)
-                time.sleep(0.3)
                 GPIO.output(18, GPIO.HIGH)
+                time.sleep(0.3)
+                GPIO.output(18, GPIO.LOW)
                 time.sleep(0.3)
         # This is the default key for authentication
         # key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
