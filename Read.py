@@ -66,7 +66,7 @@ while continue_reading:
     if status == MIFAREReader.MI_OK:
 
         # Print UID
-        nfcid = ",".join(uid)
+        nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
         res = http.post('posts', nfcid).data.trackMyAss
         if (res.ack.ok):
