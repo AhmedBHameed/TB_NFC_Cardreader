@@ -20,5 +20,5 @@ class Http:
     def query(self, nfcid):
         return {
             'variables': None,
-            'query': 'mutation { trakMyAss(nfcid: "' + nfcid + '") { id, freelancer_id, partner_id, log_date, login, logout, notes, ack { ok, message } } }'
+            'query': 'mutation { trackMyAss(nfcid: "' + nfcid + '") { id, freelancer_id, partner_id, log_date, login, logout, notes, ack { ok, message } } }'
         }
