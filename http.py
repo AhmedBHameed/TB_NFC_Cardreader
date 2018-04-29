@@ -15,7 +15,7 @@ class Http:
         return self.http.get(self.url + page).json()
         
     def post(self, page, payload):
-          return self.http.post(self.url + page, data=json.dumps(self.query(nfcid)), headers=self.headers).json()
+          return self.http.post(self.url + page, data=json.dumps(self.query(payload)), headers=self.headers).json()
     
     def query(self, nfcid):
         return {
