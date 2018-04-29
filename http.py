@@ -3,8 +3,8 @@ import requests
 import json
 
 class Http:
-    url = "https://jsonplaceholder.typicode.com/"
-    # url = environments.backendUrl
+    # url = "https://jsonplaceholder.typicode.com/"
+    url = environments.backendUrl
     http = requests
     headers = {'Content-type': 'application/json'}
 
@@ -13,8 +13,14 @@ class Http:
     def get(self, page=''):
         return self.http.get(self.url + page).json()
         
-    def post(self, page, payload):
+    def post(self, page, nfcid):
+        payload = payload || slef.query(nfcid)
         return self.http.post(self.url + page, data=json.dumps(payload), headers=self.headers).json()
+    def query(nfcid):
+        return {
+            'variables': null,
+            'query': 'mutation { trakMyAss(nfcid: "' + nfcid + '") { id, freelancer_id, partner_id, log_date, login, logout, notes, ack { ok, message } } }'
+        }
         
 http = Http()
-print (http.post('posts', {'userId':1, 'id': 101, 'title': 'this is a new title', 'body': 'This is my new body'}))
+print (http.post('posts', '1,2,3,4'))
