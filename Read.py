@@ -66,9 +66,9 @@ while continue_reading:
     if status == MIFAREReader.MI_OK:
 
         # Print UID
-        uid = uid[0] + ',' + uid[1] + ',' + uid[2] + ',' + uid[3]
-        print ("Card read UID: %s" % uid)
-        res = http.post('posts', uid).data.trackMyAss
+        nfcid = ",".join(uid)
+        print ("Card read UID: %s" % nfcid)
+        res = http.post('posts', nfcid).data.trackMyAss
         if (res.ack.ok):
             print(res.ack.message)
             # TODO blinking flash 3 times fast
