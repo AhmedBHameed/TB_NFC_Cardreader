@@ -22,6 +22,3 @@ class Http:
             'variables': None,
             'query': 'mutation { trakMyAss(nfcid: "' + nfcid + '") { id, freelancer_id, partner_id, log_date, login, logout, notes, ack { ok, message } } }'
         }
-        
-http = Http()
-print (http.post('posts', '1,2,3,4'))

@@ -25,6 +25,7 @@ import ASUS.GPIO as GPIO
 import MFRC522
 import signal
 import time
+import http
 
 continue_reading = True
 
@@ -45,6 +46,9 @@ MIFAREReader = MFRC522.MFRC522()
 print ("Welcome to the MFRC522 data read example")
 print ("Press Ctrl-C to stop.")
 
+# Preper HTTP module to send request to the server
+http = http.Http()
+
 # This loop keeps checking for chips. If one is near it will get the UID and authenticate
 while continue_reading:
     
@@ -62,21 +66,30 @@ while continue_reading:
     if status == MIFAREReader.MI_OK:
 
         # Print UID
-        print ("Card read UID: %s,%s,%s,%s" % (uid[0], uid[1], uid[2], uid[3]))
+        uid = uid[0] + ',' + uid[1] + ',' + uid[2] + ',' + uid[3]
+        print ("Card read UID: %s" % uid)
+        res = http.post('posts', uid).data.trackMyAss
+        if (res.ack.ok):
+            print(res.ack.message)
+            # TODO blinking flash 3 times fast
+        else:
+            print(res.ack.message)
+            # TODO blink 3 time slow
     
         # This is the default key for authentication
-        key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
+        # key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
         
         # Select the scanned tag
-        MIFAREReader.MFRC522_SelectTag(uid)
+        # MIFAREReader.MFRC522_SelectTag(uid)
 
         # Authenticate
-        status = MIFAREReader.MFRC522_Auth(MIFAREReader.PICC_AUTHENT1A, 8, key, uid)
+        # status = MIFAREReader.MFRC522_Auth(MIFAREReader.PICC_AUTHENT1A, 8, key, uid)
 
         # Check if authenticated
-        if status == MIFAREReader.MI_OK:
-            MIFAREReader.MFRC522_Read(8)
-            MIFAREReader.MFRC522_StopCrypto1()
-        else:
-            print ("Authentication error")
-            time.sleep(10)
+        # if status == MIFAREReader.MI_OK:
+            # MIFAREReader.MFRC522_Read(8)
+            # MIFAREReader.MFRC522_StopCrypto1()
+            # print (http.post('posts', '1,2,3,4'))
+
+        # Kill execution for 10 seconds
+        time.sleep(10)
