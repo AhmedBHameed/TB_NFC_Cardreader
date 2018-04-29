@@ -4,7 +4,7 @@ import json
 
 class Http:
     # url = "https://jsonplaceholder.typicode.com/"
-    url = environments.backendUrl
+    url = environments.backendUrlHome
     http = requests
     headers = {'Content-type': 'application/json'}
 
