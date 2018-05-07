@@ -67,6 +67,9 @@ while continue_reading:
         # Print UID
         nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
+        GPIO.output(18, GPIO.HIGH)
+        time.sleep(0.4)
+        GPIO.output(18, GPIO.LOW)
         res = http.post('graphql/', nfcid)
         res = res['data']['trackMyAss']
         if (res['ack']['ok']):
