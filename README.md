@@ -68,14 +68,15 @@ And follow the map here to do the interface pins.
 
 | Name | Pin # | Pin name   |
 |:------:|:-------:|:------------:|
-| SDA  | 24    | GPIO8      |
-| SCK  | 23    | GPIO11     |
-| MOSI | 19    | GPIO10     |
-| MISO | 21    | GPIO9      |
+| SDA  | 24    | CE0        |
+| SCK  | 23    | SCLK1      |
+| MOSI | 19    | MOSI1      |
+| MISO | 21    | MOSO1      |
 | IRQ  | None  | None       |
 | GND  | Any   | Any Ground |
-| RST  | 22    | GPIO25     |
+| RST  | 22    | GPIO5C3    |
 | 3.3V | 1     | 3V3        |
+| Buz  | 18    | GPIO5B3
 
 
 ## License

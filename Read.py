@@ -67,7 +67,7 @@ while continue_reading:
         # Print UID
         nfcid = ",".join(map(str,uid))
         print ("Card read UID: %s" % nfcid)
-        res = http.post('posts', nfcid)
+        res = http.post('graphql/', nfcid)
         res = res['data']['trackMyAss']
         if (res['ack']['ok']):
             print(res['ack']['message'])
