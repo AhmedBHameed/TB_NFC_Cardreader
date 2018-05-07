@@ -36,7 +36,7 @@ This library directed to Tinkerboard boards.
         $ sudo python setup.py install
         $ sudo python3 setup.py install
     ```
-- Finally (Optional) install requests library to make simple http request as i needed it in my application. Taken from this [repo](https://github.com/requests/requests)
+- Finally (Optional) install requests library to make simple http request as i needed it in my application. Taken from this [Requests repo](https://github.com/requests/requests)
     ```bash
         $ cd requirements/requests/
         $ sudo python setup.py install
@@ -52,17 +52,18 @@ when i was trying to run this application MFRC522 was designed for respberry Pi 
 
 - Inside MFRC522.py, change the RPi.GPIO to ASUS.GPIO.
 - Go to the line 130 change spidev from 1.0 to 2.0. This interface is enabled by default.
+- Dont forget to change you end-back end-point *-^.
 - Now every thing setup.
 
 ## Pins(GPIO.BOARD)
 You can use image for reference.
-<div class="center">
+<h1 align="center">
     <br>
     <br>
     <img src="http://radioaficion.com/news/wp-content/uploads/2017/01/Asus_Tinker_Board_catalogue-3.jpg" alt="ASUS GPIO layout">
     <br>
     <br>
-</div>
+</h1>
 
 And follow the map here to do the interface pins.
 
