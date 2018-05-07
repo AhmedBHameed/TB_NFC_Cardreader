@@ -9,6 +9,7 @@ https://github.com/mxgxw/MFRC522-python
 This library directed to Tinkerboard boards.
 
 - Install python.
+- install SPI from requirements folder
 - Install GPIO of ASUS
 - Change the RPi.GPIO to ASUS.GPIO
 - Go to the file MFRC522.py, on line 130 change spidev from 1.0 to 2.0. This interface is enabled by default.

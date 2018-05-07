@@ -112,4 +112,4 @@ while continue_reading:
             # print (http.post('posts', '1,2,3,4'))
 
         # Kill execution for 10 seconds
-        time.sleep(10)
+        time.sleep(5)
