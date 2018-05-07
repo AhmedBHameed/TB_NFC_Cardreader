@@ -56,7 +56,7 @@ when i was trying to run this application MFRC522 was designed for respberry Pi 
 - Now every thing setup.
 
 ## Pins(GPIO.BOARD)
-You can use image for reference.
+You can use image as reference.
 <h1 align="center">
     <br>
     <br>
