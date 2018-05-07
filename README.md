@@ -2,8 +2,7 @@ TB_NFC_Cardreader
 ==============
 NFC card reader for Tinkerboard. This script written with python language to build check in system for employees.
 
-**Important notice:** This library is based on an existing library of ***Mario Gómez***
-https://github.com/mxgxw/MFRC522-python
+**Important notice:** This library is based on an existing library of [***Mario Gómez***](https://github.com/mxgxw/MFRC522-python)
 
 ## Requirements
 This library directed to Tinkerboard boards.
