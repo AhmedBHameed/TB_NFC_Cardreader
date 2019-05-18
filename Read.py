@@ -21,7 +21,10 @@
 #    along with MFRC522-Python.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import ASUS.GPIO as GPIO
+# GPIO for Tinker board
+# import ASUS.GPIO as GPIO
+# GPIO For Raspberry Pi
+import RPi.GPIO as GPIO
 import MFRC522
 import signal
 import time
